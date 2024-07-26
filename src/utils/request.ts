@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { error } from 'console'
 import { ElMessage } from 'element-plus'
 
 let request = axios.create({
@@ -24,7 +23,6 @@ request.interceptors.response.use(
     return response.data
   },
   (error) => {
-    const status = error.response.status
     const msg = error.response.message
     //提示错误信息
     ElMessage.error(msg)

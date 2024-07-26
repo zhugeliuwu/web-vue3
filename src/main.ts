@@ -1,14 +1,18 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import {createPinia} from 'pinia'
+import router from '@/router'
+import pinia from '@/store'
+// 引入模板的全局的样式
+import '@/styles/index.scss'
 
-const store = createPinia()
+import 'element-plus/dist/index.css'
+// 黑暗模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 createApp(App)
   .use(ElementPlus, {
     locale: zhCn,
-  }).use(store)
+  }).use(router).use(pinia)
   .mount('#app')
